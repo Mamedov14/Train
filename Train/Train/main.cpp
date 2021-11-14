@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <string>
 #include <fstream>
 #include <Windows.h>
@@ -14,21 +14,21 @@ int getVariant(int count);
 
 class Train {
 private:
-	int numberTrain;						// номер поезда.
-	std::string startStation;				// начальная станция.
-	std::string endStation;					// конечная станция.
+	int numberTrain;						// РЅРѕРјРµСЂ РїРѕРµР·РґР°.
+	std::string startStation;				// РЅР°С‡Р°Р»СЊРЅР°СЏ СЃС‚Р°РЅС†РёСЏ.
+	std::string endStation;					// РєРѕРЅРµС‡РЅР°СЏ СЃС‚Р°РЅС†РёСЏ.
 
-	int arrivalHour;						// часы прибытия.
-	int arrivalMinutes;						// минуты прибытия.
+	int arrivalHour;						// С‡Р°СЃС‹ РїСЂРёР±С‹С‚РёСЏ.
+	int arrivalMinutes;						// РјРёРЅСѓС‚С‹ РїСЂРёР±С‹С‚РёСЏ.
 
-	int departureHour;						// часы отправления.
-	int departureMinutes;					// минуты отправления.
+	int departureHour;						// С‡Р°СЃС‹ РѕС‚РїСЂР°РІР»РµРЅРёСЏ.
+	int departureMinutes;					// РјРёРЅСѓС‚С‹ РѕС‚РїСЂР°РІР»РµРЅРёСЏ.
 
-	int arrivalDay;							// день прибытия
-	int arrivalMonth;						// месяц прибытия 
+	int arrivalDay;							// РґРµРЅСЊ РїСЂРёР±С‹С‚РёСЏ
+	int arrivalMonth;						// РјРµСЃСЏС† РїСЂРёР±С‹С‚РёСЏ 
 
-	int departureDay;						// день отправления
-	int departureMonth;						// месяц отправления 
+	int departureDay;						// РґРµРЅСЊ РѕС‚РїСЂР°РІР»РµРЅРёСЏ
+	int departureMonth;						// РјРµСЃСЏС† РѕС‚РїСЂР°РІР»РµРЅРёСЏ 
 
 public:
 	void createdTrain();
@@ -117,60 +117,60 @@ public:
 };
 
 void Train::createdTrain() {
-	std::cout << "Введите номер поезда: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїРѕРµР·РґР°: ";
 	std::cin >> numberTrain;
-	std::cout << "Введите начальную станцию: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РЅР°С‡Р°Р»СЊРЅСѓСЋ СЃС‚Р°РЅС†РёСЋ: ";
 	std::cin >> startStation;
-	std::cout << "Введите конечную станцию: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РєРѕРЅРµС‡РЅСѓСЋ СЃС‚Р°РЅС†РёСЋ: ";
 	std::cin >> endStation;
-	std::cout << "Введите день отправления: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РґРµРЅСЊ РѕС‚РїСЂР°РІР»РµРЅРёСЏ: ";
 	std::cin >> departureDay;
-	std::cout << "Введите месяц отправления: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РјРµСЃСЏС† РѕС‚РїСЂР°РІР»РµРЅРёСЏ: ";
 	std::cin >> departureMonth;
-	std::cout << "Введите день прибытия: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РґРµРЅСЊ РїСЂРёР±С‹С‚РёСЏ: ";
 	std::cin >> arrivalDay;
-	std::cout << "Введите месяц прибытия: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РјРµСЃСЏС† РїСЂРёР±С‹С‚РёСЏ: ";
 	std::cin >> arrivalMonth;
 
-	if (startStation == "Воронеж") {
-		std::cout << "Введите часы отправления поезда в Воронеж: ";
+	if (startStation == "Р’РѕСЂРѕРЅРµР¶") {
+		std::cout << "Р’РІРµРґРёС‚Рµ С‡Р°СЃС‹ РѕС‚РїСЂР°РІР»РµРЅРёСЏ РїРѕРµР·РґР° РІ Р’РѕСЂРѕРЅРµР¶: ";
 		std::cin >> departureHour;
-		std::cout << "Введите минуты отправления поезда в Воронеж: ";
+		std::cout << "Р’РІРµРґРёС‚Рµ РјРёРЅСѓС‚С‹ РѕС‚РїСЂР°РІР»РµРЅРёСЏ РїРѕРµР·РґР° РІ Р’РѕСЂРѕРЅРµР¶: ";
 		std::cin >> departureMinutes;
 	}
-	else if (endStation == "Воронеж") {
-		std::cout << "Введите часы прибытия поезда в Воронеж: ";
+	else if (endStation == "Р’РѕСЂРѕРЅРµР¶") {
+		std::cout << "Р’РІРµРґРёС‚Рµ С‡Р°СЃС‹ РїСЂРёР±С‹С‚РёСЏ РїРѕРµР·РґР° РІ Р’РѕСЂРѕРЅРµР¶: ";
 		std::cin >> arrivalHour;
-		std::cout << "Введите минуты прибытия поезда в Воронеж: ";
+		std::cout << "Р’РІРµРґРёС‚Рµ РјРёРЅСѓС‚С‹ РїСЂРёР±С‹С‚РёСЏ РїРѕРµР·РґР° РІ Р’РѕСЂРѕРЅРµР¶: ";
 		std::cin >> arrivalMinutes;
 	}
 	else {
-		std::cout << "Введите часы отправления поезда из Воронежа: ";
+		std::cout << "Р’РІРµРґРёС‚Рµ С‡Р°СЃС‹ РѕС‚РїСЂР°РІР»РµРЅРёСЏ РїРѕРµР·РґР° РёР· Р’РѕСЂРѕРЅРµР¶Р°: ";
 		std::cin >> departureHour;
-		std::cout << "Введите минуты отправления поезда из Воронежа: ";
+		std::cout << "Р’РІРµРґРёС‚Рµ РјРёРЅСѓС‚С‹ РѕС‚РїСЂР°РІР»РµРЅРёСЏ РїРѕРµР·РґР° РёР· Р’РѕСЂРѕРЅРµР¶Р°: ";
 		std::cin >> departureMinutes;
-		std::cout << "Введите часы прибытия поезда в Воронеж: ";
+		std::cout << "Р’РІРµРґРёС‚Рµ С‡Р°СЃС‹ РїСЂРёР±С‹С‚РёСЏ РїРѕРµР·РґР° РІ Р’РѕСЂРѕРЅРµР¶: ";
 		std::cin >> arrivalHour;
-		std::cout << "Введите минуты прибытия поезда в Воронеж: ";
+		std::cout << "Р’РІРµРґРёС‚Рµ РјРёРЅСѓС‚С‹ РїСЂРёР±С‹С‚РёСЏ РїРѕРµР·РґР° РІ Р’РѕСЂРѕРЅРµР¶: ";
 		std::cin >> arrivalHour;
 	}
 }
 
 void Train::infoTrain() {
-	std::cout << "\nПоезд №" << numberTrain;
-	std::cout << "\nНачальная станция: " << startStation;
-	std::cout << "\nКонечная станция: " << endStation;
-	std::cout << "\nДата отправления: " << departureDay << "." << departureMonth;
-	std::cout << "\nДата прибытия: " << arrivalDay << "." << arrivalMonth;;
-	if (startStation == "Воронеж") {
-		std::cout << "\nОтправка поезда из Воронежа: " << departureHour << ":" << departureMinutes;
+	std::cout << "\nРџРѕРµР·Рґ в„–" << numberTrain;
+	std::cout << "\nРќР°С‡Р°Р»СЊРЅР°СЏ СЃС‚Р°РЅС†РёСЏ: " << startStation;
+	std::cout << "\nРљРѕРЅРµС‡РЅР°СЏ СЃС‚Р°РЅС†РёСЏ: " << endStation;
+	std::cout << "\nР”Р°С‚Р° РѕС‚РїСЂР°РІР»РµРЅРёСЏ: " << departureDay << "." << departureMonth;
+	std::cout << "\nР”Р°С‚Р° РїСЂРёР±С‹С‚РёСЏ: " << arrivalDay << "." << arrivalMonth;;
+	if (startStation == "Р’РѕСЂРѕРЅРµР¶") {
+		std::cout << "\nРћС‚РїСЂР°РІРєР° РїРѕРµР·РґР° РёР· Р’РѕСЂРѕРЅРµР¶Р°: " << departureHour << ":" << departureMinutes;
 	}
-	else if (endStation == "Воронеж") {
-		std::cout << "\nПрибытие поезда в Воронеж: " << arrivalHour << ":" << arrivalMinutes;
+	else if (endStation == "Р’РѕСЂРѕРЅРµР¶") {
+		std::cout << "\nРџСЂРёР±С‹С‚РёРµ РїРѕРµР·РґР° РІ Р’РѕСЂРѕРЅРµР¶: " << arrivalHour << ":" << arrivalMinutes;
 	}
 	else {
-		std::cout << "\nПрибытие поезда в Воронеж: " << arrivalHour << ":" << arrivalMinutes;
-		std::cout << "\nОтправка поезда из Воронежа: " << departureHour << ":" << departureMinutes;
+		std::cout << "\nРџСЂРёР±С‹С‚РёРµ РїРѕРµР·РґР° РІ Р’РѕСЂРѕРЅРµР¶: " << arrivalHour << ":" << arrivalMinutes;
+		std::cout << "\nРћС‚РїСЂР°РІРєР° РїРѕРµР·РґР° РёР· Р’РѕСЂРѕРЅРµР¶Р°: " << departureHour << ":" << departureMinutes;
 	}
 }
 
@@ -189,8 +189,8 @@ int main(int argc, char* argv[]) {
 		switch (variant)
 		{
 		case 1: {
-			std::cout << "\nВы нажали: 1\n";
-			std::cout << "Все поезда:\n";
+			std::cout << "\nР’С‹ РЅР°Р¶Р°Р»Рё: 1\n";
+			std::cout << "Р’СЃРµ РїРѕРµР·РґР°:\n";
 			Train::load("C:/Users/vagif/source/repos/Train/Train/allTrainRuns.txt");
 			for (int i = 0; i < saveTrains.size(); i++) {
 				saveTrains[i].infoTrain();
@@ -200,8 +200,8 @@ int main(int argc, char* argv[]) {
 			break;
 		}
 		case 2: {
-			std::cout << "\nВы нажали: 2\n";
-			std::cout << "Все поезда:\n";
+			std::cout << "\nР’С‹ РЅР°Р¶Р°Р»Рё: 2\n";
+			std::cout << "Р’СЃРµ РїРѕРµР·РґР°:\n";
 			for (int i = 0; i < saveTrains.size(); i++) {
 				saveTrains[i].infoTrain();
 			}
@@ -211,14 +211,14 @@ int main(int argc, char* argv[]) {
 			break;
 		}
 		case 3: {
-			std::cout << "\nВы нажали: 3\n";
+			std::cout << "\nР’С‹ РЅР°Р¶Р°Р»Рё: 3\n";
 			Train::outputDataBase();
 			std::cout << std::endl;
 			std::cout << std::endl;
 			break;
 		}
 		case 4: {
-			std::cout << "\nВы нажали: 4\n";
+			std::cout << "\nР’С‹ РЅР°Р¶Р°Р»Рё: 4\n";
 			for (int i = 0; i < dataBase.size(); i++) {
 				dataBase[i].infoTrain();
 			}
@@ -228,7 +228,7 @@ int main(int argc, char* argv[]) {
 			break;
 		}
 		case 5: {
-			std::cout << "\nВы нажали: 5\n";
+			std::cout << "\nР’С‹ РЅР°Р¶Р°Р»Рё: 5\n";
 			for (int i = 0; i < dataBase.size(); i++) {
 				dataBase[i].infoTrain();
 			}
@@ -238,22 +238,22 @@ int main(int argc, char* argv[]) {
 			break;
 		}
 		case 6: {
-			std::cout << "\nВы нажали: 6\n";
+			std::cout << "\nР’С‹ РЅР°Р¶Р°Р»Рё: 6\n";
 			Train::outoutTrainNumber();
 			std::cout << std::endl;
 			std::cout << std::endl;
 			break;
 		}
 		case 7: {
-			std::cout << "\nВы нажали: 7\n";
+			std::cout << "\nР’С‹ РЅР°Р¶Р°Р»Рё: 7\n";
 			Train::outputParkingTime();
 			std::cout << std::endl;
 			std::cout << std::endl;
 			break;
 		}
 		case 8: {
-			std::cout << "\nВы нажали: 8\n";
-			std::cout << "\nСортировка.";
+			std::cout << "\nР’С‹ РЅР°Р¶Р°Р»Рё: 8\n";
+			std::cout << "\nРЎРѕСЂС‚РёСЂРѕРІРєР°.";
 			Train::sort();
 			for (int i = 0; i < dataBase.size(); i++) {
 				dataBase[i].infoTrain();
@@ -288,41 +288,41 @@ void Train::load(const std::string& file) {
 
 	if (f.is_open()) {
 		while (getline(f, str)) {
-			if (str == "Поезд") {
-				/* Пример того, что находится  в .txt файле.
-							Поезд
+			if (str == "РџРѕРµР·Рґ") {
+				/* РџСЂРёРјРµСЂ С‚РѕРіРѕ, С‡С‚Рѕ РЅР°С…РѕРґРёС‚СЃСЏ  РІ .txt С„Р°Р№Р»Рµ.
+							РџРѕРµР·Рґ
 							3
-							Липецк
-							Москва
+							Р›РёРїРµС†Рє
+							РњРѕСЃРєРІР°
 							15 12
 							15 12
 							10 15
 							20 29
 				*/
 
-				// взял из файла номер поезда.
+				// РІР·СЏР» РёР· С„Р°Р№Р»Р° РЅРѕРјРµСЂ РїРѕРµР·РґР°.
 				int number;
 				f >> number;
 				f << std::endl;
-				// взял из файла начало маршрута.
+				// РІР·СЏР» РёР· С„Р°Р№Р»Р° РЅР°С‡Р°Р»Рѕ РјР°СЂС€СЂСѓС‚Р°.
 				std::string start;
 				std::getline(f, start);
-				// взял из файла конец маршрута.
+				// РІР·СЏР» РёР· С„Р°Р№Р»Р° РєРѕРЅРµС† РјР°СЂС€СЂСѓС‚Р°.
 				std::string end;
 				std::getline(f, end);
-				// взял из файла даты.
+				// РІР·СЏР» РёР· С„Р°Р№Р»Р° РґР°С‚С‹.
 				int arrivalDay, arrivalMonth, departureDay, departureMonth;
 				f >> arrivalDay;
 				f >> arrivalMonth;
 				f >> departureDay;
 				f >> departureMonth;
-				// взял из файла время.
+				// РІР·СЏР» РёР· С„Р°Р№Р»Р° РІСЂРµРјСЏ.
 				int arrivalHour{}, arrivalMinutes{}, departureHour{}, departureMinutes{};
-				if (start == "Воронеж") {
+				if (start == "Р’РѕСЂРѕРЅРµР¶") {
 					f >> departureHour;
 					f >> departureMinutes;
 				}
-				else if (end == "Воронеж") {
+				else if (end == "Р’РѕСЂРѕРЅРµР¶") {
 					f >> arrivalHour;
 					f >> arrivalMinutes;
 				}
@@ -346,10 +346,10 @@ void Train::load(const std::string& file) {
 }
 
 void Train::trainInVoronezh() {
-	std::cout << std::endl << std::endl << "БАЗА ДАННЫХ!\n";
+	std::cout << std::endl << std::endl << "Р‘РђР—Рђ Р”РђРќРќР«РҐ!\n";
 	int day, month;
-	std::cout << "Введите день и месяц, чтобы узнать какие поезда были на станции Воронеж "
-		<< "в конкретный день:\n";
+	std::cout << "Р’РІРµРґРёС‚Рµ РґРµРЅСЊ Рё РјРµСЃСЏС†, С‡С‚РѕР±С‹ СѓР·РЅР°С‚СЊ РєР°РєРёРµ РїРѕРµР·РґР° Р±С‹Р»Рё РЅР° СЃС‚Р°РЅС†РёРё Р’РѕСЂРѕРЅРµР¶ "
+		<< "РІ РєРѕРЅРєСЂРµС‚РЅС‹Р№ РґРµРЅСЊ:\n";
 	std::cin >> day;
 	std::cin >> month;
 	bool check = false;
@@ -362,25 +362,25 @@ void Train::trainInVoronezh() {
 		}
 	}
 	if (!check) {
-		std::cout << "В этот день поездов не было на стации Воронеж!";
+		std::cout << "Р’ СЌС‚РѕС‚ РґРµРЅСЊ РїРѕРµР·РґРѕРІ РЅРµ Р±С‹Р»Рѕ РЅР° СЃС‚Р°С†РёРё Р’РѕСЂРѕРЅРµР¶!";
 	}
 }
 
 void Train::outputDataBase() {
-	std::cout << "Вся информация из Базы Данных!\n";
+	std::cout << "Р’СЃСЏ РёРЅС„РѕСЂРјР°С†РёСЏ РёР· Р‘Р°Р·С‹ Р”Р°РЅРЅС‹С…!\n";
 	bool temp = false;
 	for (int i = 0; i < dataBase.size(); i++) {
 		dataBase[i].infoTrain();
 		temp = true;
 	}
 	if (!temp) {
-		std::cout << "А тут пусто))";
+		std::cout << "Рђ С‚СѓС‚ РїСѓСЃС‚Рѕ))";
 	}
 }
 
 void Train::deleteInfoDataBase() {
 	int number;
-	std::cout << "\nВведите номер поезда информацию которого хотите удалить: ";
+	std::cout << "\nР’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїРѕРµР·РґР° РёРЅС„РѕСЂРјР°С†РёСЋ РєРѕС‚РѕСЂРѕРіРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ: ";
 	std::cin >> number;
 	for (int i = 0; i < dataBase.size(); i++) {
 		if (number == dataBase[i].numberTrain) {
@@ -396,31 +396,31 @@ void Train::deleteInfoDataBase() {
 		}
 	}
 	if (!temp) {
-		std::cout << "Тут пусто или Вы всё удалили))";
+		std::cout << "РўСѓС‚ РїСѓСЃС‚Рѕ РёР»Рё Р’С‹ РІСЃС‘ СѓРґР°Р»РёР»Рё))";
 	}
 
 }
 
 void Train::changeTrainFields() {
 	int number;
-	std::cout << "\nВведите номер поезда поля которого хотите изменить: ";
+	std::cout << "\nР’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїРѕРµР·РґР° РїРѕР»СЏ РєРѕС‚РѕСЂРѕРіРѕ С…РѕС‚РёС‚Рµ РёР·РјРµРЅРёС‚СЊ: ";
 	std::cin >> number;
 
-	std::cout << "\nИзменять номер поезда ЗАПРЕЩЕНО!\n";
-	std::cout << "1. Начальную станцию\n";
-	std::cout << "2. Конечную станцию\n";
-	std::cout << "3. Дату отправления\n";
-	std::cout << "4. Дату прибытия\n";
-	std::cout << "5. Время прибытия\n";
-	std::cout << "6. Время отправления\n";
+	std::cout << "\nРР·РјРµРЅСЏС‚СЊ РЅРѕРјРµСЂ РїРѕРµР·РґР° Р—РђРџР Р•Р©Р•РќРћ!\n";
+	std::cout << "1. РќР°С‡Р°Р»СЊРЅСѓСЋ СЃС‚Р°РЅС†РёСЋ\n";
+	std::cout << "2. РљРѕРЅРµС‡РЅСѓСЋ СЃС‚Р°РЅС†РёСЋ\n";
+	std::cout << "3. Р”Р°С‚Сѓ РѕС‚РїСЂР°РІР»РµРЅРёСЏ\n";
+	std::cout << "4. Р”Р°С‚Сѓ РїСЂРёР±С‹С‚РёСЏ\n";
+	std::cout << "5. Р’СЂРµРјСЏ РїСЂРёР±С‹С‚РёСЏ\n";
+	std::cout << "6. Р’СЂРµРјСЏ РѕС‚РїСЂР°РІР»РµРЅРёСЏ\n";
 
 	int check;
-	std::cout << "\nВведите поле которое хотите изменить: ";
+	std::cout << "\nР’РІРµРґРёС‚Рµ РїРѕР»Рµ РєРѕС‚РѕСЂРѕРµ С…РѕС‚РёС‚Рµ РёР·РјРµРЅРёС‚СЊ: ";
 	std::cin >> check;
 
 	if (check == 1) {
 		std::string start;
-		std::cout << "Введите новую начальную станцию: ";
+		std::cout << "Р’РІРµРґРёС‚Рµ РЅРѕРІСѓСЋ РЅР°С‡Р°Р»СЊРЅСѓСЋ СЃС‚Р°РЅС†РёСЋ: ";
 		std::cin >> start;
 		for (int i = 0; i < dataBase.size(); i++) {
 			if (number == dataBase[i].numberTrain) {
@@ -430,7 +430,7 @@ void Train::changeTrainFields() {
 	}
 	else if (check == 2) {
 		std::string end;
-		std::cout << "Введите новую конечную станцию: ";
+		std::cout << "Р’РІРµРґРёС‚Рµ РЅРѕРІСѓСЋ РєРѕРЅРµС‡РЅСѓСЋ СЃС‚Р°РЅС†РёСЋ: ";
 		std::cin >> end;
 		for (int i = 0; i < dataBase.size(); i++) {
 			if (number == dataBase[i].numberTrain) {
@@ -440,7 +440,7 @@ void Train::changeTrainFields() {
 	}
 	else if (check == 3) {
 		int day, month;
-		std::cout << "Введите новую дату отправления(день и месяц): ";
+		std::cout << "Р’РІРµРґРёС‚Рµ РЅРѕРІСѓСЋ РґР°С‚Сѓ РѕС‚РїСЂР°РІР»РµРЅРёСЏ(РґРµРЅСЊ Рё РјРµСЃСЏС†): ";
 		std::cin >> day;
 		std::cin >> month;
 		for (int i = 0; i < dataBase.size(); i++) {
@@ -452,7 +452,7 @@ void Train::changeTrainFields() {
 	}
 	else if (check == 4) {
 		int day, month;
-		std::cout << "Введите новую дату прибытия(день и месяц): ";
+		std::cout << "Р’РІРµРґРёС‚Рµ РЅРѕРІСѓСЋ РґР°С‚Сѓ РїСЂРёР±С‹С‚РёСЏ(РґРµРЅСЊ Рё РјРµСЃСЏС†): ";
 		std::cin >> day;
 		std::cin >> month;
 		for (int i = 0; i < dataBase.size(); i++) {
@@ -464,7 +464,7 @@ void Train::changeTrainFields() {
 	}
 	else if (check == 5) {
 		int hour, minutes;
-		std::cout << "Введите новое время прибытия(часы и минуты): ";
+		std::cout << "Р’РІРµРґРёС‚Рµ РЅРѕРІРѕРµ РІСЂРµРјСЏ РїСЂРёР±С‹С‚РёСЏ(С‡Р°СЃС‹ Рё РјРёРЅСѓС‚С‹): ";
 		std::cin >> hour;
 		std::cin >> minutes;
 		for (int i = 0; i < dataBase.size(); i++) {
@@ -476,7 +476,7 @@ void Train::changeTrainFields() {
 	}
 	else if (check == 6) {
 		int hour, minutes;
-		std::cout << "Введите новое время отправления(часы и минуты): ";
+		std::cout << "Р’РІРµРґРёС‚Рµ РЅРѕРІРѕРµ РІСЂРµРјСЏ РѕС‚РїСЂР°РІР»РµРЅРёСЏ(С‡Р°СЃС‹ Рё РјРёРЅСѓС‚С‹): ";
 		std::cin >> hour;
 		std::cin >> minutes;
 		for (int i = 0; i < dataBase.size(); i++) {
@@ -487,10 +487,10 @@ void Train::changeTrainFields() {
 		}
 	}
 	else {
-		std::cout << "Такого пункта нет!";
+		std::cout << "РўР°РєРѕРіРѕ РїСѓРЅРєС‚Р° РЅРµС‚!";
 	}
 
-	std::cout << "Редактирование:\n";
+	std::cout << "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ:\n";
 	bool temp = false;
 	for (int i = 0; i < dataBase.size(); i++) {
 		if (number == dataBase[i].numberTrain) {
@@ -499,37 +499,37 @@ void Train::changeTrainFields() {
 		}
 	}
 	if (!temp) {
-		std::cout << "В базе данных пусто, Вы ничего не можете изменить!";
+		std::cout << "Р’ Р±Р°Р·Рµ РґР°РЅРЅС‹С… РїСѓСЃС‚Рѕ, Р’С‹ РЅРёС‡РµРіРѕ РЅРµ РјРѕР¶РµС‚Рµ РёР·РјРµРЅРёС‚СЊ!";
 	}
 }
 
 void Train::outoutTrainNumber() {
 	int number;
-	std::cout << "Введите номер поезда: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїРѕРµР·РґР°: ";
 	std::cin >> number;
 	bool temp = false;
 	for (int i = 0; i < dataBase.size(); i++) {
 		if (number == dataBase[i].numberTrain) {
-			std::cout << "Маршрут: " << dataBase[i].startStation << " - " << dataBase[i].endStation;
+			std::cout << "РњР°СЂС€СЂСѓС‚: " << dataBase[i].startStation << " - " << dataBase[i].endStation;
 			temp = true;
 		}
 	}
 	if (!temp) {
-		std::cout << "В базе данных такого поезда нет!";
+		std::cout << "Р’ Р±Р°Р·Рµ РґР°РЅРЅС‹С… С‚Р°РєРѕРіРѕ РїРѕРµР·РґР° РЅРµС‚!";
 	}
 }
 
 void Train::outputParkingTime() {
 	bool temp = false;
 	for (int i = 0; i < dataBase.size(); i++) {
-		std::cout << "\nПоезд №" << dataBase[i].numberTrain;
-		std::cout << "\nВремя стоянки в Воронеже: " <<
+		std::cout << "\nРџРѕРµР·Рґ в„–" << dataBase[i].numberTrain;
+		std::cout << "\nР’СЂРµРјСЏ СЃС‚РѕСЏРЅРєРё РІ Р’РѕСЂРѕРЅРµР¶Рµ: " <<
 			abs(dataBase[i].departureHour - dataBase[i].arrivalHour) << ":" <<
 			abs(dataBase[i].departureMinutes - dataBase[i].arrivalMinutes);
 		temp = true;
 	}
 	if (!temp) {
-		std::cout << "Сейчас в базе ничего нет!";
+		std::cout << "РЎРµР№С‡Р°СЃ РІ Р±Р°Р·Рµ РЅРёС‡РµРіРѕ РЅРµС‚!";
 	}
 }
 
@@ -545,23 +545,23 @@ void Train::sort() {
 		}
 	}
 	if (!temp) {
-		std::cout << "\nВ базе данных ничео нет поэтому сортировать нечего!\n";
+		std::cout << "\nР’ Р±Р°Р·Рµ РґР°РЅРЅС‹С… РЅРёС‡РµРѕ РЅРµС‚ РїРѕСЌС‚РѕРјСѓ СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ РЅРµС‡РµРіРѕ!\n";
 	}
 }
 
 
 void MainMenu() {
 	system("cls");
-	std::cout << "\nМеню!\n";
-	std::cout << "1. Посмотеть какие поезда имеются.\n";
-	std::cout << "2. Посмотреть поезда, которые были в конкретный день в Воронеже.\n";
-	std::cout << "3. Посмотреть, что в базе данных.\n";
-	std::cout << "4. Удалить информацию из базы данных\n";
-	std::cout << "5. Редактировать поля.\n";
-	std::cout << "6. Вывести маршрут по номеру поезда.\n";
-	std::cout << "7. Вывести время стоянки поезда в Воронеже.\n";
-	std::cout << "8. Сортировать по времени отправления со станции Воронеж.\n";
-	std::cout << "9. Выйти из меню.\n";
+	std::cout << "\nРњРµРЅСЋ!\n";
+	std::cout << "1. РџРѕСЃРјРѕС‚РµС‚СЊ РєР°РєРёРµ РїРѕРµР·РґР° РёРјРµСЋС‚СЃСЏ.\n";
+	std::cout << "2. РџРѕСЃРјРѕС‚СЂРµС‚СЊ РїРѕРµР·РґР°, РєРѕС‚РѕСЂС‹Рµ Р±С‹Р»Рё РІ РєРѕРЅРєСЂРµС‚РЅС‹Р№ РґРµРЅСЊ РІ Р’РѕСЂРѕРЅРµР¶Рµ.\n";
+	std::cout << "3. РџРѕСЃРјРѕС‚СЂРµС‚СЊ, С‡С‚Рѕ РІ Р±Р°Р·Рµ РґР°РЅРЅС‹С….\n";
+	std::cout << "4. РЈРґР°Р»РёС‚СЊ РёРЅС„РѕСЂРјР°С†РёСЋ РёР· Р±Р°Р·С‹ РґР°РЅРЅС‹С…\n";
+	std::cout << "5. Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РїРѕР»СЏ.\n";
+	std::cout << "6. Р’С‹РІРµСЃС‚Рё РјР°СЂС€СЂСѓС‚ РїРѕ РЅРѕРјРµСЂСѓ РїРѕРµР·РґР°.\n";
+	std::cout << "7. Р’С‹РІРµСЃС‚Рё РІСЂРµРјСЏ СЃС‚РѕСЏРЅРєРё РїРѕРµР·РґР° РІ Р’РѕСЂРѕРЅРµР¶Рµ.\n";
+	std::cout << "8. РЎРѕСЂС‚РёСЂРѕРІР°С‚СЊ РїРѕ РІСЂРµРјРµРЅРё РѕС‚РїСЂР°РІР»РµРЅРёСЏ СЃРѕ СЃС‚Р°РЅС†РёРё Р’РѕСЂРѕРЅРµР¶.\n";
+	std::cout << "9. Р’С‹Р№С‚Рё РёР· РјРµРЅСЋ.\n";
 }
 
 int getVariant(int count) {
