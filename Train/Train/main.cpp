@@ -189,53 +189,70 @@ int main(int argc, char* argv[]) {
 		switch (variant)
 		{
 		case 1: {
+			std::cout << "\nВы нажали: 1\n";
 			std::cout << "Все поезда:\n";
 			Train::load("C:/Users/vagif/source/repos/Train/Train/allTrainRuns.txt");
 			for (int i = 0; i < saveTrains.size(); i++) {
 				saveTrains[i].infoTrain();
 			}
-
 			std::cout << std::endl;
 			std::cout << std::endl;
 			break;
 		}
 		case 2: {
+			std::cout << "\nВы нажали: 2\n";
+			std::cout << "Все поезда:\n";
+			for (int i = 0; i < saveTrains.size(); i++) {
+				saveTrains[i].infoTrain();
+			}
 			Train::trainInVoronezh();
 			std::cout << std::endl;
 			std::cout << std::endl;
 			break;
 		}
 		case 3: {
+			std::cout << "\nВы нажали: 3\n";
 			Train::outputDataBase();
 			std::cout << std::endl;
 			std::cout << std::endl;
 			break;
 		}
 		case 4: {
+			std::cout << "\nВы нажали: 4\n";
+			for (int i = 0; i < dataBase.size(); i++) {
+				dataBase[i].infoTrain();
+			}
 			Train::deleteInfoDataBase();
 			std::cout << std::endl;
 			std::cout << std::endl;
 			break;
 		}
 		case 5: {
+			std::cout << "\nВы нажали: 5\n";
+			for (int i = 0; i < dataBase.size(); i++) {
+				dataBase[i].infoTrain();
+			}
 			Train::changeTrainFields();
 			std::cout << std::endl;
 			std::cout << std::endl;
 			break;
 		}
 		case 6: {
+			std::cout << "\nВы нажали: 6\n";
 			Train::outoutTrainNumber();
 			std::cout << std::endl;
 			std::cout << std::endl;
 			break;
 		}
 		case 7: {
+			std::cout << "\nВы нажали: 7\n";
 			Train::outputParkingTime();
 			std::cout << std::endl;
 			std::cout << std::endl;
 			break;
 		}
 		case 8: {
+			std::cout << "\nВы нажали: 8\n";
 			std::cout << "\nСортировка.";
 			Train::sort();
 			for (int i = 0; i < dataBase.size(); i++) {
@@ -259,6 +276,7 @@ int main(int argc, char* argv[]) {
 }
 
 void Train::load(const std::string& file) {
+	saveTrains.clear();
 
 	std::string str;
 	std::fstream f;
@@ -367,14 +385,20 @@ void Train::deleteInfoDataBase() {
 	for (int i = 0; i < dataBase.size(); i++) {
 		if (number == dataBase[i].numberTrain) {
 			dataBase.erase(dataBase.begin() + i);
-		}
-		if (!dataBase.size() == 0) {
-			dataBase[i].infoTrain();
-		}
-		else {
-			std::cout << "Вы всё удалили, теперь тут пусто))";
+			break;
 		}
 	}
+	bool temp = false;
+	for (int i = 0; i < dataBase.size(); i++) {
+		if (!dataBase.empty()) {
+			dataBase[i].infoTrain();
+			temp = true;
+		}
+	}
+	if (!temp) {
+		std::cout << "Тут пусто или Вы всё удалили))";
+	}
+
 }
 
 void Train::changeTrainFields() {
@@ -387,8 +411,8 @@ void Train::changeTrainFields() {
 	std::cout << "2. Конечную станцию\n";
 	std::cout << "3. Дату отправления\n";
 	std::cout << "4. Дату прибытия\n";
-	std::cout << "5. Время отправления\n";
-	std::cout << "6. Время прибытия\n";
+	std::cout << "5. Время прибытия\n";
+	std::cout << "6. Время отправления\n";
 
 	int check;
 	std::cout << "\nВведите поле которое хотите изменить: ";
@@ -440,18 +464,6 @@ void Train::changeTrainFields() {
 	}
 	else if (check == 5) {
 		int hour, minutes;
-		std::cout << "Введите новое время отправления(часы и минуты): ";
-		std::cin >> hour;
-		std::cin >> minutes;
-		for (int i = 0; i < dataBase.size(); i++) {
-			if (number == dataBase[i].numberTrain) {
-				dataBase[i].setDepartureTimeHour(hour);
-				dataBase[i].setDepartureTimeMinutes(minutes);
-			}
-		}
-	}
-	else if (check == 6) {
-		int hour, minutes;
 		std::cout << "Введите новое время прибытия(часы и минуты): ";
 		std::cin >> hour;
 		std::cin >> minutes;
@@ -462,11 +474,23 @@ void Train::changeTrainFields() {
 			}
 		}
 	}
+	else if (check == 6) {
+		int hour, minutes;
+		std::cout << "Введите новое время отправления(часы и минуты): ";
+		std::cin >> hour;
+		std::cin >> minutes;
+		for (int i = 0; i < dataBase.size(); i++) {
+			if (number == dataBase[i].numberTrain) {
+				dataBase[i].setDepartureTimeHour(hour);
+				dataBase[i].setDepartureTimeMinutes(minutes);
+			}
+		}
+	}
 	else {
 		std::cout << "Такого пункта нет!";
 	}
 
-	std::cout << "Ваш вабранный поезд, который был изменён:\n";
+	std::cout << "Редактирование:\n";
 	bool temp = false;
 	for (int i = 0; i < dataBase.size(); i++) {
 		if (number == dataBase[i].numberTrain) {
@@ -483,33 +507,45 @@ void Train::outoutTrainNumber() {
 	int number;
 	std::cout << "Введите номер поезда: ";
 	std::cin >> number;
+	bool temp = false;
 	for (int i = 0; i < dataBase.size(); i++) {
 		if (number == dataBase[i].numberTrain) {
 			std::cout << "Маршрут: " << dataBase[i].startStation << " - " << dataBase[i].endStation;
+			temp = true;
 		}
+	}
+	if (!temp) {
+		std::cout << "В базе данных такого поезда нет!";
 	}
 }
 
 void Train::outputParkingTime() {
+	bool temp = false;
 	for (int i = 0; i < dataBase.size(); i++) {
 		std::cout << "\nПоезд №" << dataBase[i].numberTrain;
 		std::cout << "\nВремя стоянки в Воронеже: " <<
 			abs(dataBase[i].departureHour - dataBase[i].arrivalHour) << ":" <<
 			abs(dataBase[i].departureMinutes - dataBase[i].arrivalMinutes);
+		temp = true;
+	}
+	if (!temp) {
+		std::cout << "Сейчас в базе ничего нет!";
 	}
 }
 
 void Train::sort() {
+	bool temp = false;
 	for (int i = 0; i < dataBase.size(); i++) {
 		for (int j = 0; j < dataBase.size() - i - 1; j++) {
-			if (dataBase[j].departureHour > dataBase[j + 1].departureHour) {
+			if (dataBase[j].departureHour * 60 + dataBase[j].departureMinutes >
+				dataBase[j + 1].departureHour * 60 + dataBase[j + 1].departureMinutes) {
 				std::swap(dataBase[j], dataBase[j + 1]);
-			}
-			else if (dataBase[j].departureHour == dataBase[j + 1].departureHour &&
-				dataBase[j].departureMinutes > dataBase[j + 1].departureMinutes) {
-				std::swap(dataBase[j], dataBase[j + 1]);
+				temp = true;
 			}
 		}
+	}
+	if (!temp) {
+		std::cout << "\nВ базе данных ничео нет поэтому сортировать нечего!\n";
 	}
 }
 
