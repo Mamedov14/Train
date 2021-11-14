@@ -236,6 +236,7 @@ int main(int argc, char* argv[]) {
 			break;
 		}
 		case 8: {
+			std::cout << "\nСортировка.";
 			Train::sort();
 			for (int i = 0; i < dataBase.size(); i++) {
 				dataBase[i].infoTrain();
