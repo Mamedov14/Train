@@ -13,6 +13,6 @@
 ![image](https://user-images.githubusercontent.com/74174732/141681571-37218bd7-24a9-4071-b554-756705cdb6bc.png)
 
 
-При нажатии на 3 получем всё что хранит наша база
+При нажатии на 3 получем всё что хранит наша база                                          
 ![image](https://user-images.githubusercontent.com/74174732/141681622-91c08f3b-c605-423a-9a69-5d1a2244233f.png)
 
