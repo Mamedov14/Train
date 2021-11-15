@@ -285,7 +285,6 @@ void Train::load(const std::string& file) {
 	if (!f) {
 		std::cout << "Error!";
 	}
-
 	if (f.is_open()) {
 		while (getline(f, str)) {
 			if (str == "Поезд") {
@@ -537,7 +536,7 @@ void Train::sort() {
 	bool temp = false;
 	for (int i = 0; i < dataBase.size(); i++) {
 		for (int j = 0; j < dataBase.size() - i - 1; j++) {
-			if (dataBase[j].departureHour * 60 + dataBase[j].departureMinutes >
+			if (dataBase[j].departureHour * 60 + dataBase[j].departureMinutes <
 				dataBase[j + 1].departureHour * 60 + dataBase[j + 1].departureMinutes) {
 				std::swap(dataBase[j], dataBase[j + 1]);
 				temp = true;
