@@ -1,8 +1,14 @@
-﻿#include <iostream>
+﻿
+#include <iostream>
 #include <string>
 #include <fstream>
 #include <Windows.h>
 #include <vector>
+
+// для подключения к SQL.
+#include <stdio.h>
+#include <stdlib.h>
+#include "lib/sqlite3.h"
 
 class Train;
 
@@ -175,11 +181,62 @@ void Train::infoTrain() {
 }
 
 
+//static int callback(void* data, int argc, char** argv, char** azColName) {
+//
+//	int i;
+//	fprintf(stderr, "%s: ", (const char*)data);
+//
+//	for (i = 0; i < argc; i++) {
+//		printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+//	}
+//
+//	printf("\n");
+//	return 0;
+//}
+
+
 int main(int argc, char* argv[]) {
 
 	setlocale(LC_ALL, "rus");
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
+
+
+	//sqlite3* db;
+	//char* zErrMsg = 0;
+	//int rc;
+	//const char* data = "Вызывается функция обратного вызова";
+
+
+	///* Open database */
+	//rc = sqlite3_open("train.db", &db);
+
+
+	//if (rc) {
+	//	fprintf(stderr, "Не могу открыть базу данных: %s\n", sqlite3_errmsg(db));
+	//	return(0);
+	//}
+	//else {
+	//	fprintf(stderr, "База данных успешно открыта \n");
+	//}
+
+
+	///* Create SQL statement */
+	//auto sql = "SELECT * FROM train";
+
+	///* Execute SQL statement */
+	//rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
+
+	//if (rc != SQLITE_OK) {
+	//	fprintf(stderr, "Ошибка SQL: %s\n", zErrMsg);
+	//	sqlite3_free(zErrMsg);
+	//}
+	//else {
+	//	fprintf(stdout, "Операция выполнена успешно!\n");
+	//}
+	//sqlite3_close(db);
+	//return 0;
+
 
 
 	int variant;
@@ -522,9 +579,24 @@ void Train::outputParkingTime() {
 	bool temp = false;
 	for (int i = 0; i < dataBase.size(); i++) {
 		std::cout << "\nПоезд №" << dataBase[i].numberTrain;
-		std::cout << "\nВремя стоянки в Воронеже: " <<
-			abs(dataBase[i].departureHour - dataBase[i].arrivalHour) << ":" <<
-			abs(dataBase[i].departureMinutes - dataBase[i].arrivalMinutes);
+		int tmp = 0;
+		// расчёт времени стоянки.
+		if (dataBase[i].arrivalMinutes > dataBase[i].departureMinutes) {
+			tmp = abs(dataBase[i].departureHour - dataBase[i].arrivalHour - 1);
+		}
+		else {
+			tmp = abs(dataBase[i].departureHour - dataBase[i].arrivalHour);
+		}
+		// проверка на то, что поезд может иметь отправление/прибытие в Врн.
+		if (dataBase[i].startStation == "Воронеж" || dataBase[i].endStation == "Воронеж") {
+			std::cout << "\nУ этого поезда невозможно определить время стоянки в Воронеже,\n" <<
+				"так как он либо отправляется из Воронежа, либо едет в Воронеж!";
+		}
+		else {
+			std::cout << "\nВремя стоянки в Воронеже: " <<
+				tmp << ":" <<
+				abs(dataBase[i].departureMinutes - dataBase[i].arrivalMinutes);
+		}
 		temp = true;
 	}
 	if (!temp) {
@@ -577,3 +649,4 @@ int getVariant(int count) {
 
 	return variant;
 }
+
